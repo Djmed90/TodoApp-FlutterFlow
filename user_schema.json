@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Users",
+  "type": "object",
+  "properties": {
+    "hometown": {
+      "type": "string",
+      "description": "The user's hometown"
+    },
+    "birthday": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The user's birthday as a timestamp"
+    },
+    "created_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The timestamp when the user was created"
+    },
+    "display_name": {
+      "type": "string",
+      "description": "The display name of the user"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "The email address of the user"
+    },
+    "photo_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the user's profile photo"
+    },
+    "uid": {
+      "type": "string",
+      "description": "Unique identifier for the user"
+    }
+  },
+  "required": ["hometown", "birthday", "created_time", "display_name", "email", "photo_url", "uid"]
+}
