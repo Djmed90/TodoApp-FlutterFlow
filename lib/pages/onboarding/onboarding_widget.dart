@@ -446,6 +446,22 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                             borderRadius: BorderRadius.circular(24.0),
                           ),
                         ),
+                        Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 20.0, 0.0, 0.0),
+                            child: Text(
+                              'Hello new user we have just sent out a welcome email to your email account please take a look !',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                          ),
+                        ),
                       ].divide(const SizedBox(height: 24.0)),
                     ),
                   ),
