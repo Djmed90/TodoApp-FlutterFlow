@@ -1,10 +1,12 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'login_model.dart';
 export 'login_model.dart';
 
@@ -58,6 +60,8 @@ class _LoginWidgetState extends State<LoginWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -758,6 +762,12 @@ class _LoginWidgetState extends State<LoginWidget>
                         if (_model.tabBarCurrentIndex == 0)
                           FFButtonWidget(
                             onPressed: () async {
+                              _model.apiResult237 = await SendEmailCall.call(
+                                to: _model.signupEmailTextController.text,
+                                subject: FFAppState().subject,
+                                text: FFAppState().EmailBody,
+                              );
+
                               if (_model.formKey2.currentState == null ||
                                   !_model.formKey2.currentState!.validate()) {
                                 return;
@@ -798,6 +808,8 @@ class _LoginWidgetState extends State<LoginWidget>
 
                               context.goNamedAuth(
                                   'onboarding', context.mounted);
+
+                              safeSetState(() {});
                             },
                             text: 'SIgn up',
                             options: FFButtonOptions(
